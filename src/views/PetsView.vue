@@ -22,7 +22,7 @@ async function carregarDados() {
   loading.value = false;
 }
 
-function nomeDoTutor(tutorId) {
+function nomeDoTutor(tutorId) { 
   for (const tutor of tutores.value) {
     console.log('tutor', tutorId);
     // tutor.id == tutorId

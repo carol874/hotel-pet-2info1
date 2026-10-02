@@ -14,6 +14,14 @@ const router = useRoute
 // POST para cadastrar novos pets salvar qualquer coisa
 //GET (chamar todos)
 
+/*   MÉTODOS HTTP  
+
+ GET: recuperar id
+ POST: salvar 
+ PH/PATCH : atualizar id
+ DELETE: remover id
+*/
+
 const API_URL = "http://localhost:3000";
 
 //saber todos os tutores que existem

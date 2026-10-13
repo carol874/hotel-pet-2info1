@@ -61,7 +61,7 @@ onMounted(carregarTutores);
 
     <RouterLink
       class="btn btn-primary"
-      :to="{ name: 'addTutor' }"
+      :to="{ name: 'addTutores' }"
     >
       Adicionar tutor
     </RouterLink>

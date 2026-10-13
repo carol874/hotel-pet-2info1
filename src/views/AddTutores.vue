@@ -5,7 +5,7 @@ import { RouterLink, useRoute } from 'vue-router';
 const novoTutor = ref({
   nome:'',
   telefone:'',
-  
+  id:''
 })
 const router = useRoute
 
@@ -32,6 +32,20 @@ async function carregarTutores() {
   console.log('load tutores', tutores);
   tutores.value = await resposta.json();
   
+}
+
+async function salvarTutor (){
+  await fetch(`${API_URL}/tutores`,{
+    method: 'POST', //salvar informação
+    header:{
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(novoTutor.value),
+
+
+    
+  });
+  router.push('/tutores')
 }
 
 
@@ -61,7 +75,7 @@ onMounted(carregarTutores);
       </p>
     </div>
 
- <form @submit.prevent="salvarPet">
+ <form @submit.prevent="salvarTutor">
 
   <div class="col-md-3"> <!-- coluna e tamanho da coluna -->
      <label for="nome" class="from-label">
@@ -76,45 +90,20 @@ onMounted(carregarTutores);
   </div>
 
    <div class="col-md-3"> 
-     <label for="nome" class="from-label">
-      Espécie
+     <label  for="telefone"  class="from-label">
+      Número de telefone
      </label>
 
-     <select  id="especie" v-model="novoPet.especie" class="form-select" required>
-         <option value="" disabled>
-            Selecione a espécie
-         </option>
-         
-         <option value="Cachorro" >
-          Cachorro
-         </option>
+     <input type="tel"
+      id="telefone" 
+      v-model="novoTutor.telefone"
+      class="form-control"
+       required>
 
-         <option value="Gato" >
-           Gato
-         </option>
-     </select>
 
      </div>
 
-       <div class="col-md-3"> 
-     <label for="nome" class="from-label">
-      Tutor
-     </label>
-
-     <select  id="tutor" v-model="novoPet.tutorId" class="form-select" required>
-         <option value="" disabled>
-             Selecione um tutor
-         </option>
-         
-         <option v-for="tutor in tutores"  :key="tutor.id" :value="tutor.id">
-          {{ tutor.nome }}
-         </option>
-     </select>
-
-     </div>
-
-
-
+      
  </form>
 
   </div>

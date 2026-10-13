@@ -8,6 +8,7 @@ const pets = ref([]);
 const tutores = ref([]);
 const loading = ref(true);
 
+
 async function carregarDados() {
   const respostaPets = await fetch(`${API_URL}/pets`);
   pets.value = await respostaPets.json();
@@ -32,6 +33,20 @@ function nomeDoTutor(tutorId) {
   }
   return 'Tutor Não Encontrado!';
 }
+//por que ela depende do servidor, ela pode fazer varias ações juntas
+async function excluirPet(id) {
+ const confirmarExclusão = window.confirm('Deseja realmente excluir o pet?')
+
+ if(confirmarExclusão){
+   //lógica para excluir o pet
+   await fetch(`${API_URL}/pets/${id}`,{
+    method: 'DELETE'
+   });
+   await carregarDados();
+ }// recarrega os dados após a exclusão
+  
+}
+
 
 // Recebe o tutorId do pet e procura o tutor correspondente.
 
@@ -76,11 +91,19 @@ onMounted(carregarDados);
           <td>{{ pet.nome }}</td>
           <td>{{ pet.especie }}</td>
           <td>{{ nomeDoTutor(pet.tutorId) }}</td>
+
           <td>
             <RouterLink :to="`/pets/${pet.id}` ">
               Visualizar 
             </RouterLink>
+            </td>
+
+            <td>
+             <button class="btn btn-danger" @click="excluirPet(pet.id) ">
+             Excluir
+             </button>
           </td>
+
         </tr>
       </tbody>
     </table>

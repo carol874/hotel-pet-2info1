@@ -32,7 +32,11 @@ const router = createRouter({
       name: 'tutores',
       component: () => import('../views/TutoresView.vue'),
     },
-    
+     {
+      path: '/tutores/:id',
+      name: 'detalhes-tutor',
+      component: () => import('../views/TutorDetailsView.vue'),
+    },
   ],
 });
 

@@ -75,7 +75,9 @@ onMounted(carregarDados);
           <th>ID</th>
           <th>Nome</th>
           <th>Telefone</th>
-         
+             <th>
+            Ações
+          </th>
         </tr>
       </thead>
 
@@ -88,6 +90,12 @@ onMounted(carregarDados);
           <td>{{ tutor.nome }}</td>
           <td>{{ tutor.telefone }}</td>
           
+            <td>
+            <RouterLink :to="`/tutores/${tutor.id}` ">
+              Visualizar 
+            </RouterLink>
+            </td>
+
 
             <td>
              <button class="btn btn-danger" @click="excluirTutor(tutor.id) ">

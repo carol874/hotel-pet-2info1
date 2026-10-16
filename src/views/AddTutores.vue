@@ -5,7 +5,10 @@ import { RouterLink, useRouter } from 'vue-router';
 const novoTutor = ref({
   nome:'',
   telefone:'',
-  id:''
+  id:'',
+   cpf:'',
+    data:'',
+     email:''
 })
 const router = useRouter();
 
@@ -55,8 +58,8 @@ onMounted(carregarTutores);
 <template>
   <div>
     <header class="mb-4">
-      <h1 class="text-2xl font-bold">Listagem de Tutores</h1>
-      <p class="text-body-secondary mb-0">Cadastro de tutores no sistema.</p>
+      <h1 class="text-2xl font-bold">Cadastar Tutores</h1>
+      <p class="text-body-secondary mb-0">Preencha os dados para cadastrar um novo tutor</p>
     </header>
 
     <button  class="btn btn-primary" @click="salvarTutor"> Adicionar tutor</button>
@@ -71,35 +74,92 @@ onMounted(carregarTutores);
     </div>
 
  <form type="submit" @submit.prevent="salvarTutor">
+    
+  <div>
+  <div class="col-md-3"> 
+     <label  for="id"  class="from-label" >
+      ID
+     </label>
+
+     <input type="tel"
+      id="id"
+      v-model="novoTutor.id"
+      class="form-control"
+      placeholder="Gerado automaticamente"
+     disabled>
+     </div>
 
   <div class="col-md-3"> <!-- coluna e tamanho da coluna -->
-     <label for="nome" class="from-label">
-       Nome do tutor
+     <label for="nome" class="from-label" >
+       Nome Completo
      </label>
 
      <input type="text"
       id="nome" 
       v-model="novoTutor.nome"
       class="form-control"
+       placeholder="Digite o nome completo"
        required>
   </div>
 
    <div class="col-md-3"> 
-     <label  for="telefone"  class="from-label">
-      Número de telefone
+     <label  for="telefone"  class="from-label" >
+      Telefone / Celular/ WhatsApp
      </label>
 
      <input type="tel"
       id="telefone" 
       v-model="novoTutor.telefone"
       class="form-control"
+       placeholder="(00) 00000-0000"
        required>
+     </div>
 
+     </div>
 
+     <div>
+     <div class="col-md-3"> 
+     <label  for="cpf"  class="from-label" >
+     CPF / CNPJ
+     </label>
+
+     <input type=""
+      id="cpf" 
+      v-model="novoTutor.cpf"
+      class="form-control"
+       placeholder="Digite o CPF ou CNPJ"
+       required>
+     </div>
+
+      <div class="col-md-3"> 
+     <label  for="data"  class="from-label" >
+     Data de Nascimento
+     </label>
+
+     <input type="month"
+      id="data" 
+      v-model="novoTutor.data"
+      class="form-control"
+       placeholder="dd/mm/aa"
+       required>
+     </div>
+
+           <div class="col-md-3"> 
+     <label  for="data"  class="from-label" >
+     Data de Nascimento
+     </label>
+
+     <input type="email"
+      id="email" 
+      v-model="novoTutor.email"
+      class="form-control"
+       placeholder="nome@example.com"
+       required>
+     </div>
      </div>
 
       
  </form>
-
+     <button  class="btn btn-primary" @click="salvarTutor">Cadastrar Tutor</button>
   </div>
 </template>

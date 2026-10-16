@@ -107,11 +107,11 @@ onMounted(carregarDados);
           <td>
             {{ tutor.email }}
           </td>
+           <td>
+
+           </td>
           <td>
-            {{  }}
-          </td>
-          <td>
-            {{ pet.nome }}
+
           </td>
           
             <td>

@@ -51,6 +51,28 @@ onMounted (carregarPet);
       </thead>
       </table>
 
+      <tbody>
+        <tr    >
+          <td>{{ tutor.id }}</td>
+          <td>{{ tutor.nome }}</td>
+          <td>
+            {{ tutor.cpf }}
+          </td>
+          <td>{{ tutor.telefone }}</td>
+          <td>
+            {{ tutor.email }}
+          </td>
+           <td>
+
+           </td>
+          <td>
+
+          </td>
+          
+        
+        </tr>
+      </tbody>
+
       <button class="btn btn">
         <RouterLink :to="{name: 'tutores'}"  >
             Voltar para tutores

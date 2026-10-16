@@ -75,10 +75,16 @@ onMounted(carregarTutores);
  <form type="submit" @submit.prevent="salvarTutor">
     
   <div>
+    <th>
+      Dados do Tutor
+    </th>
   <div class="col-md-3"> 
+    <th>
      <label  for="id"  class="from-label" >
       ID
      </label>
+    </th>
+   
 
      <input type="tel"
       id="id"
@@ -88,10 +94,14 @@ onMounted(carregarTutores);
      disabled>
      </div>
 
-  <div class="col-md-3"> <!-- coluna e tamanho da coluna -->
-     <label for="nome" class="from-label" >
+    
+  <div class="col-md-3">
+     <th>
+  <label for="nome" class="from-label" >
        Nome Completo
      </label>
+     </th> <!-- coluna e tamanho da coluna -->
+   
 
      <input type="text"
       id="nome" 
@@ -102,9 +112,12 @@ onMounted(carregarTutores);
   </div>
 
    <div class="col-md-3"> 
-     <label  for="telefone"  class="from-label" >
+    <th>
+        <label  for="telefone"  class="from-label" >
       Telefone / Celular/ WhatsApp
      </label>
+    </th>
+   
 
      <input type="tel"
       id="telefone" 
@@ -118,9 +131,12 @@ onMounted(carregarTutores);
 
      <div>
      <div class="col-md-3"> 
-     <label  for="cpf"  class="from-label" >
+      <th>
+  <label  for="cpf"  class="from-label" >
      CPF / CNPJ
      </label>
+      </th>
+   
 
      <input type=""
       id="cpf" 
@@ -131,9 +147,12 @@ onMounted(carregarTutores);
      </div>
 
       <div class="col-md-3"> 
-     <label  for="data"  class="from-label" >
+        <th>
+    <label  for="data"  class="from-label" >
      Data de Nascimento
      </label>
+        </th>
+ 
 
      <input type="month"
       id="data" 
@@ -144,9 +163,12 @@ onMounted(carregarTutores);
      </div>
 
            <div class="col-md-3"> 
-     <label  for="data"  class="from-label" >
+            <th>
+  <label  for="data"  class="from-label" >
      Data de Nascimento
      </label>
+            </th>
+   
 
      <input type="email"
       id="email" 
@@ -159,6 +181,9 @@ onMounted(carregarTutores);
 
       
  </form>
-     <button  class="btn btn-primary" @click="salvarTutor">Cadastrar Tutor</button>
+
   </div>
+            
+             <button  class="btn btn-primary" @click="salvarTutor">Cadastrar Tutor</button>
+            
 </template>

@@ -14,13 +14,26 @@ async function carregarPet() {
     const idPet = route.params.id;
     console.log('ID do pet:', idPet);
     
-    const respostaPet = await fetch (`${API_URL}/pets/${idPet}`);
+    const respostaPet = await fetch (`${API_URL}/tutores/${idPet}`);
     pet.value = await respostaPet.json();
 
     const respostaTutor = await fetch (
         `${API_URL}/tutores/${pet.value.tutorId}`,
     );
     tutor.value = await respostaTutor.json();
+}
+
+async function excluirTutor(id) {
+ const confirmarExclusão = window.confirm('Deseja realmente excluir o tutor?')
+
+ if(confirmarExclusão){
+   //lógica para excluir o pet
+   await fetch(`${API_URL}/tutores/${id}`,{
+    method: 'DELETE'
+   });
+   await carregarDados();
+ }// recarrega os dados após a exclusão
+  
 }
 
 onMounted (carregarPet);
@@ -35,8 +48,9 @@ onMounted (carregarPet);
       <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Nome Completo {{ tutor?.nome }}</th>
+          <th>ID </th>
+          
+          <th>Nome Completo</th>
           <th>Telefone/ Celular/ WhatsApp</th>
              <th>
            Data de Nascimento
@@ -49,34 +63,21 @@ onMounted (carregarPet);
           </th>
         </tr>
       </thead>
+
+
       </table>
 
-      <tbody>
-        <tr    >
-          <td>{{ tutor.id }}</td>
-          <td>{{ tutor.nome }}</td>
-          <td>
-            {{ tutor.cpf }}
-          </td>
-          <td>{{ tutor.telefone }}</td>
-          <td>
-            {{ tutor.email }}
-          </td>
-           <td>
-
-           </td>
-          <td>
-
-          </td>
-          
-        
-        </tr>
-      </tbody>
-
+     
       <button class="btn btn">
         <RouterLink :to="{name: 'tutores'}"  >
             Voltar para tutores
         </RouterLink>
 
       </button>
+
+       <td>
+             <button class="btn btn-danger" @click="excluirTutor(tutor.id) ">
+             Remover Tutor
+             </button>
+          </td>
 </template>

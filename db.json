@@ -6,11 +6,6 @@
       "telefone": "479999100100"
     },
     {
-      "id": "2",
-      "nome": "Maria",
-      "telefone": "479999100100"
-    },
-    {
       "id": "3",
       "nome": "Ana",
       "telefone": "479999100100"
@@ -22,6 +17,12 @@
       "nome": "Melado",
       "especie": "Cachorro",
       "tutorId": "2"
+    },
+    {
+      "nome": "carol",
+      "especie": "Cachorro",
+      "tutorId": "1",
+      "id": "qV6kSVWaYF4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

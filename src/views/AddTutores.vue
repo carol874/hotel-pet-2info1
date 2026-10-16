@@ -1,13 +1,13 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { RouterLink, useRoute } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 
 const novoTutor = ref({
   nome:'',
   telefone:'',
   id:''
 })
-const router = useRoute
+const router = useRouter();
 
 // aqui estou declarando a api que vai retornar a listagem do todos os pets
 // sera responsavel por cadastrar novos pets
@@ -37,7 +37,7 @@ async function carregarTutores() {
 async function salvarTutor (){
   await fetch(`${API_URL}/tutores`,{
     method: 'POST', //salvar informação
-    header:{
+    headers:{
       'Content-type': 'application/json',
     },
     body: JSON.stringify(novoTutor.value),
@@ -59,12 +59,7 @@ onMounted(carregarTutores);
       <p class="text-body-secondary mb-0">Cadastro de tutores no sistema.</p>
     </header>
 
-    <RouterLink
-      class="btn btn-primary"
-      :to="{ name: 'addTutores' }"
-    >
-      Adicionar tutor
-    </RouterLink>
+    <button  class="btn btn-primary" @click="salvarTutor"> Adicionar tutor</button>
 
     <p v-if="carregandoTutores">
        Carregando Tutores...
@@ -75,7 +70,7 @@ onMounted(carregarTutores);
       </p>
     </div>
 
- <form @submit.prevent="salvarTutor">
+ <form type="submit" @submit.prevent="salvarTutor">
 
   <div class="col-md-3"> <!-- coluna e tamanho da coluna -->
      <label for="nome" class="from-label">

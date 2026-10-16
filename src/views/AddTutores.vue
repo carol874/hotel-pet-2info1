@@ -62,7 +62,6 @@ onMounted(carregarTutores);
       <p class="text-body-secondary mb-0">Preencha os dados para cadastrar um novo tutor</p>
     </header>
 
-    <button  class="btn btn-primary" @click="salvarTutor"> Adicionar tutor</button>
 
     <p v-if="carregandoTutores">
        Carregando Tutores...

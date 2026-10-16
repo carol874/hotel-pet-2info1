@@ -70,11 +70,23 @@ onMounted(carregarDados);
     </RouterLink>
 
     <table class="table table-striped table-hover">
-      <thead>
+      <thead >
         <tr>
           <th>ID</th>
-          <th>Nome</th>
-          <th>Telefone</th>
+          <th>Nome Completo</th>
+          <th>
+            CPF / CNPJ
+          </th>
+          <th>Telefone / Celular / WhatsApp</th>
+          <th>
+            E-mail
+          </th>
+          <th>
+            Pets (Quantidade)
+          </th>
+          <th>
+            Nome dos Pets
+          </th>
              <th>
             Ações
           </th>
@@ -88,7 +100,19 @@ onMounted(carregarDados);
         >
           <td>{{ tutor.id }}</td>
           <td>{{ tutor.nome }}</td>
+          <td>
+            {{ tutor.cpf }}
+          </td>
           <td>{{ tutor.telefone }}</td>
+          <td>
+            {{ tutor.email }}
+          </td>
+          <td>
+            {{  }}
+          </td>
+          <td>
+            {{ pet.nome }}
+          </td>
           
             <td>
             <RouterLink :to="`/tutores/${tutor.id}` ">
@@ -106,5 +130,8 @@ onMounted(carregarDados);
         </tr>
       </tbody>
     </table>
+    <th class="text-body-secondary mb-0">
+      Exibindo {{ tutores.length }} tutores
+    </th>
   </div>
 </template>
